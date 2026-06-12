@@ -1,15 +1,13 @@
 # 🤖 Binance Futures Testnet Trading Bot
 
-A clean, production-style Python CLI trading bot for placing **MARKET** and **LIMIT** orders on the [Binance Futures Testnet](https://testnet.binancefuture.com) (USDT-M).
+A clean, production-style Python CLI trading bot for placing **MARKET** and **LIMIT** orders on Binance Futures Demo Trading (USDT-M), using the API base endpoint `https://demo-fapi.binance.com`.
 
 ---
 
 ## 📁 Project Structure
-
-```
 trading_bot/
 ├── bot/
-│   ├── __init__.py          # Package exports
+│   ├── init.py          # Package exports
 │   ├── client.py            # Binance REST API client (auth, signing, HTTP)
 │   ├── orders.py            # Order placement logic + OrderResult dataclass
 │   ├── validators.py        # Input validation layer
@@ -20,7 +18,6 @@ trading_bot/
 ├── main.py                  # Application entry point
 ├── requirements.txt
 └── README.md
-```
 
 ---
 
@@ -50,16 +47,19 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Get Your Binance Futures Testnet API Keys
+### 4. Get Your Binance Futures Demo Trading API Keys
 
-> The testnet is completely free — no real money is involved.
+> Demo trading is completely free — no real money is involved.
 
-1. Visit [https://testnet.binancefuture.com](https://testnet.binancefuture.com)
-2. Click **"Log In with GitHub"** (a GitHub account is required)
-3. Authorise the application
-4. You will land on the testnet dashboard
-5. Go to **"API Key"** tab → click **"Generate Key"**
+1. Log in to your existing Binance account at [https://www.binance.com](https://www.binance.com)
+2. Navigate to [https://demo.binance.com](https://demo.binance.com) and click **"Start demo trading"**
+3. Switch to the **"Futures"** tab
+4. Go to **Account → API Management** (`demo.binance.com/en/my/settings/api-management`)
+5. Click **"Create API"**, give it a label (e.g. `tradingbot`), and confirm
 6. Copy both the **API Key** and **Secret Key** immediately (the secret is shown only once)
+7. Ensure **"Enable Futures"** is checked under API restrictions
+
+> Note: Binance previously used `testnet.binancefuture.com` with GitHub login; this has been superseded by the Demo Trading platform above, which uses your regular Binance account and the API base endpoint `https://demo-fapi.binance.com`.
 
 ### 5. Configure Your API Credentials
 
@@ -125,34 +125,29 @@ python main.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
 ```
 
 **Expected terminal output:**
-```
 ──────────────────────────────────────────────────
-  📋  ORDER REQUEST SUMMARY
+📋  ORDER REQUEST SUMMARY
 ──────────────────────────────────────────────────
-  Symbol    : BTCUSDT
-  Side      : BUY
-  Type      : MARKET
-  Quantity  : 0.001
+Symbol    : BTCUSDT
+Side      : BUY
+Type      : MARKET
+Quantity  : 0.001
 ──────────────────────────────────────────────────
-
 🔗  Checking testnet connectivity...
 ✅  Connected to Binance Futures Testnet
-
 ⏳  Placing order...
-
 ──────────────────────────────────────────────────
-  ✅  ORDER PLACED SUCCESSFULLY
+✅  ORDER PLACED SUCCESSFULLY
 ──────────────────────────────────────────────────
-  Order ID     : 3851920471
-  Symbol       : BTCUSDT
-  Side         : BUY
-  Type         : MARKET
-  Status       : FILLED
-  Orig Qty     : 0.001
-  Executed Qty : 0.001
-  Avg Fill Price: 57821.40
+Order ID     : 3851920471
+Symbol       : BTCUSDT
+Side         : BUY
+Type         : MARKET
+Status       : FILLED
+Orig Qty     : 0.001
+Executed Qty : 0.001
+Avg Fill Price: 57821.40
 ──────────────────────────────────────────────────
-```
 
 ---
 
@@ -163,35 +158,30 @@ python main.py --symbol ETHUSDT --side SELL --type LIMIT --quantity 0.05 --price
 ```
 
 **Expected terminal output:**
-```
 ──────────────────────────────────────────────────
-  📋  ORDER REQUEST SUMMARY
+📋  ORDER REQUEST SUMMARY
 ──────────────────────────────────────────────────
-  Symbol    : ETHUSDT
-  Side      : SELL
-  Type      : LIMIT
-  Quantity  : 0.05
-  Price     : 3450
+Symbol    : ETHUSDT
+Side      : SELL
+Type      : LIMIT
+Quantity  : 0.05
+Price     : 3450
 ──────────────────────────────────────────────────
-
 🔗  Checking testnet connectivity...
 ✅  Connected to Binance Futures Testnet
-
 ⏳  Placing order...
-
 ──────────────────────────────────────────────────
-  ✅  ORDER PLACED SUCCESSFULLY
+✅  ORDER PLACED SUCCESSFULLY
 ──────────────────────────────────────────────────
-  Order ID     : 3851993204
-  Symbol       : ETHUSDT
-  Side         : SELL
-  Type         : LIMIT
-  Status       : NEW
-  Orig Qty     : 0.05
-  Executed Qty : 0
-  Price        : 3450.00000
+Order ID     : 3851993204
+Symbol       : ETHUSDT
+Side         : SELL
+Type         : LIMIT
+Status       : NEW
+Orig Qty     : 0.05
+Executed Qty : 0
+Price        : 3450.00000
 ──────────────────────────────────────────────────
-```
 
 > A LIMIT order with status `NEW` means it has been accepted and is waiting for the market price to reach your limit price.
 
@@ -202,10 +192,7 @@ python main.py --symbol ETHUSDT --side SELL --type LIMIT --quantity 0.05 --price
 ```bash
 python main.py --symbol BTCUSDT --side BUY --type LIMIT --quantity 0.001
 ```
-
-```
 ❌  Validation Error: 'price' is required for LIMIT orders.
-```
 
 ---
 
@@ -222,32 +209,25 @@ Each run logs:
 | `ERROR` | Validation failures, API errors, network issues |
 
 **Sample log — MARKET order:**
-```
 2025-07-10 14:22:01 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
 2025-07-10 14:22:01 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
 2025-07-10 14:22:02 | trading_bot.orders   | INFO     | Order accepted | orderId=3851920471 status=FILLED executedQty=0.001
 2025-07-10 14:22:02 | trading_bot.cli      | INFO     | Session completed successfully.
-```
 
 **Sample log — LIMIT order:**
-```
 2025-07-10 14:35:17 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
 2025-07-10 14:35:18 | trading_bot.orders   | INFO     | Placing SELL LIMIT order | symbol=ETHUSDT qty=0.05 price=3450.00
 2025-07-10 14:35:18 | trading_bot.orders   | INFO     | Order accepted | orderId=3851993204 status=NEW executedQty=0
 2025-07-10 14:35:18 | trading_bot.cli      | INFO     | Session completed successfully.
-```
 
 ---
 
 ## 🏗️ Architecture Overview
-
-```
 main.py
-  └─ cli.py          ← parses args, prints UI, orchestrates the flow
-       ├─ validators.py   ← sanitises and validates all user input
-       ├─ client.py       ← handles HTTP, HMAC signing, error parsing
-       └─ orders.py       ← builds request params, calls client, wraps response
-```
+└─ cli.py          ← parses args, prints UI, orchestrates the flow
+├─ validators.py   ← sanitises and validates all user input
+├─ client.py       ← handles HTTP, HMAC signing, error parsing
+└─ orders.py       ← builds request params, calls client, wraps response
 
 Each layer has a single responsibility:
 
