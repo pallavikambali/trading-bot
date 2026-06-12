@@ -1,0 +1,5 @@
+# trading_bot/requirements.txt
+# Pin versions for reproducible installs
+
+requests==2.32.3          # HTTP client for Binance REST API calls
+python-dotenv==1.0.1      # Optional: load credentials from a .env file

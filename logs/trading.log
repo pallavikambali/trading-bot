@@ -1,0 +1,122 @@
+2025-07-10 14:22:01 | trading_bot          | DEBUG    | Logging initialised. Log file: /path/to/trading_bot/logs/trading.log
+2025-07-10 14:22:01 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2025-07-10 14:22:01 | trading_bot.validators | DEBUG   | Validating inputs — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2025-07-10 14:22:01 | trading_bot.validators | DEBUG   | Validation passed: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None}
+2025-07-10 14:22:01 | trading_bot.cli      | INFO     | Order request | symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2025-07-10 14:22:01 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://testnet.binancefuture.com)
+2025-07-10 14:22:01 | trading_bot.client   | DEBUG    | GET https://testnet.binancefuture.com/fapi/v1/ping params={}
+2025-07-10 14:22:01 | trading_bot.client   | DEBUG    | HTTP 200 https://testnet.binancefuture.com/fapi/v1/ping
+2025-07-10 14:22:01 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2025-07-10 14:22:02 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
+2025-07-10 14:22:02 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2025-07-10 14:22:02 | trading_bot.client   | DEBUG    | POST https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1720614122345}
+2025-07-10 14:22:02 | trading_bot.client   | DEBUG    | HTTP 200 https://testnet.binancefuture.com/fapi/v1/order
+2025-07-10 14:22:02 | trading_bot.client   | DEBUG    | API response: {'orderId': 3851920471, 'symbol': 'BTCUSDT', 'status': 'FILLED', 'clientOrderId': 'x-HNA4nQLMd4bb9d06e5fc', 'price': '0', 'avgPrice': '57821.40', 'origQty': '0.001', 'executedQty': '0.001', 'cumQuote': '57.82140', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'updateTime': 1720614122489}
+2025-07-10 14:22:02 | trading_bot.orders   | INFO     | Order accepted | orderId=3851920471 status=FILLED executedQty=0.001
+2025-07-10 14:22:02 | trading_bot.orders   | DEBUG    | Full order response: {'orderId': 3851920471, 'symbol': 'BTCUSDT', 'status': 'FILLED', ...}
+2025-07-10 14:22:02 | trading_bot.cli      | INFO     | Session completed successfully.
+
+2025-07-10 14:35:17 | trading_bot          | DEBUG    | Logging initialised. Log file: /path/to/trading_bot/logs/trading.log
+2025-07-10 14:35:17 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2025-07-10 14:35:17 | trading_bot.validators | DEBUG   | Validating inputs — symbol=ETHUSDT side=SELL type=LIMIT qty=0.05 price=3450.00
+2025-07-10 14:35:17 | trading_bot.validators | DEBUG   | Validation passed: {'symbol': 'ETHUSDT', 'side': 'SELL', 'order_type': 'LIMIT', 'quantity': '0.05', 'price': '3450.00'}
+2025-07-10 14:35:17 | trading_bot.cli      | INFO     | Order request | symbol=ETHUSDT side=SELL type=LIMIT qty=0.05 price=3450.00
+2025-07-10 14:35:17 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://testnet.binancefuture.com)
+2025-07-10 14:35:17 | trading_bot.client   | DEBUG    | GET https://testnet.binancefuture.com/fapi/v1/ping params={}
+2025-07-10 14:35:17 | trading_bot.client   | DEBUG    | HTTP 200 https://testnet.binancefuture.com/fapi/v1/ping
+2025-07-10 14:35:17 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2025-07-10 14:35:18 | trading_bot.orders   | INFO     | Placing SELL LIMIT order | symbol=ETHUSDT qty=0.05 price=3450.00
+2025-07-10 14:35:18 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.05', 'price': '3450.00', 'timeInForce': 'GTC'}
+2025-07-10 14:35:18 | trading_bot.client   | DEBUG    | POST https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.05', 'price': '3450.00', 'timeInForce': 'GTC', 'timestamp': 1720614918782}
+2025-07-10 14:35:18 | trading_bot.client   | DEBUG    | HTTP 200 https://testnet.binancefuture.com/fapi/v1/order
+2025-07-10 14:35:18 | trading_bot.client   | DEBUG    | API response: {'orderId': 3851993204, 'symbol': 'ETHUSDT', 'status': 'NEW', 'clientOrderId': 'x-HNA4nQLM7f3a92c11d88', 'price': '3450.00', 'avgPrice': '0', 'origQty': '0.05', 'executedQty': '0', 'cumQuote': '0', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'updateTime': 1720614918901}
+2025-07-10 14:35:18 | trading_bot.orders   | INFO     | Order accepted | orderId=3851993204 status=NEW executedQty=0
+2025-07-10 14:35:18 | trading_bot.orders   | DEBUG    | Full order response: {'orderId': 3851993204, 'symbol': 'ETHUSDT', 'status': 'NEW', ...}
+2025-07-10 14:35:18 | trading_bot.cli      | INFO     | Session completed successfully.
+2026-06-12 11:25:50 | trading_bot          | DEBUG    | Logging initialised. Log file: C:\Users\Pallavi Kambali\Downloads\trading_bot_1\trading_bot\logs\trading.log
+2026-06-12 11:25:50 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2026-06-12 11:25:50 | trading_bot.validators | DEBUG    | Validating inputs — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-12 11:25:50 | trading_bot.validators | DEBUG    | Validation passed: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None}
+2026-06-12 11:25:50 | trading_bot.cli      | INFO     | Order request | symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-12 11:25:50 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://testnet.binancefuture.com)
+2026-06-12 11:25:50 | trading_bot.client   | DEBUG    | GET https://testnet.binancefuture.com/fapi/v1/ping params={}
+2026-06-12 11:25:51 | trading_bot.client   | DEBUG    | HTTP 200 https://testnet.binancefuture.com/fapi/v1/ping
+2026-06-12 11:25:51 | trading_bot.client   | DEBUG    | API response: {}
+2026-06-12 11:25:51 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2026-06-12 11:25:51 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
+2026-06-12 11:25:51 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-06-12 11:25:51 | trading_bot.client   | DEBUG    | POST https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1781243751607}
+2026-06-12 11:25:52 | trading_bot.client   | DEBUG    | HTTP 401 https://testnet.binancefuture.com/fapi/v1/order
+2026-06-12 11:25:52 | trading_bot.client   | ERROR    | Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:25:52 | trading_bot.orders   | ERROR    | Order placement failed: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:25:52 | trading_bot.cli      | ERROR    | Session ended with order failure: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:27:19 | trading_bot          | DEBUG    | Logging initialised. Log file: C:\Users\Pallavi Kambali\Downloads\trading_bot_1\trading_bot\logs\trading.log
+2026-06-12 11:27:19 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2026-06-12 11:27:19 | trading_bot.validators | DEBUG    | Validating inputs — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-12 11:27:19 | trading_bot.validators | DEBUG    | Validation passed: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None}
+2026-06-12 11:27:19 | trading_bot.cli      | INFO     | Order request | symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-12 11:27:19 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://demo-fapi.binance.com)
+2026-06-12 11:27:19 | trading_bot.client   | DEBUG    | GET https://demo-fapi.binance.com/fapi/v1/ping params={}
+2026-06-12 11:27:19 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/ping
+2026-06-12 11:27:19 | trading_bot.client   | DEBUG    | API response: {}
+2026-06-12 11:27:19 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2026-06-12 11:27:19 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
+2026-06-12 11:27:19 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-06-12 11:27:19 | trading_bot.client   | DEBUG    | POST https://demo-fapi.binance.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1781243839963}
+2026-06-12 11:27:20 | trading_bot.client   | DEBUG    | HTTP 401 https://demo-fapi.binance.com/fapi/v1/order
+2026-06-12 11:27:20 | trading_bot.client   | ERROR    | Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:27:20 | trading_bot.orders   | ERROR    | Order placement failed: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:27:20 | trading_bot.cli      | ERROR    | Session ended with order failure: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:29:11 | trading_bot          | DEBUG    | Logging initialised. Log file: C:\Users\Pallavi Kambali\Downloads\trading_bot_1\trading_bot\logs\trading.log
+2026-06-12 11:29:11 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2026-06-12 11:29:11 | trading_bot.validators | DEBUG    | Validating inputs — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-12 11:29:11 | trading_bot.validators | DEBUG    | Validation passed: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None}
+2026-06-12 11:29:11 | trading_bot.cli      | INFO     | Order request | symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-12 11:29:11 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://demo-fapi.binance.com)
+2026-06-12 11:29:11 | trading_bot.client   | DEBUG    | GET https://demo-fapi.binance.com/fapi/v1/ping params={}
+2026-06-12 11:29:11 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/ping
+2026-06-12 11:29:11 | trading_bot.client   | DEBUG    | API response: {}
+2026-06-12 11:29:11 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2026-06-12 11:29:11 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
+2026-06-12 11:29:11 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-06-12 11:29:11 | trading_bot.client   | DEBUG    | POST https://demo-fapi.binance.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1781243951864}
+2026-06-12 11:29:11 | trading_bot.client   | DEBUG    | HTTP 401 https://demo-fapi.binance.com/fapi/v1/order
+2026-06-12 11:29:11 | trading_bot.client   | ERROR    | Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:29:11 | trading_bot.orders   | ERROR    | Order placement failed: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:29:11 | trading_bot.cli      | ERROR    | Session ended with order failure: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-06-12 11:32:10 | trading_bot          | DEBUG    | Logging initialised. Log file: C:\Users\Pallavi Kambali\Downloads\trading_bot_1\trading_bot\logs\trading.log
+2026-06-12 11:32:10 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2026-06-12 11:32:10 | trading_bot.validators | DEBUG    | Validating inputs — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-12 11:32:10 | trading_bot.validators | DEBUG    | Validation passed: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None}
+2026-06-12 11:32:10 | trading_bot.cli      | INFO     | Order request | symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-12 11:32:10 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://demo-fapi.binance.com)
+2026-06-12 11:32:10 | trading_bot.client   | DEBUG    | GET https://demo-fapi.binance.com/fapi/v1/ping params={}
+2026-06-12 11:32:11 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/ping
+2026-06-12 11:32:11 | trading_bot.client   | DEBUG    | API response: {}
+2026-06-12 11:32:11 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2026-06-12 11:32:11 | trading_bot.orders   | INFO     | Placing BUY MARKET order | symbol=BTCUSDT qty=0.001
+2026-06-12 11:32:11 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-06-12 11:32:11 | trading_bot.client   | DEBUG    | POST https://demo-fapi.binance.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1781244131119}
+2026-06-12 11:32:11 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/order
+2026-06-12 11:32:11 | trading_bot.client   | DEBUG    | API response: {'orderId': 14999998614, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': '7l4vw9dqMcJiidKHWWnhvF', 'price': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1781244130856}
+2026-06-12 11:32:11 | trading_bot.orders   | INFO     | Order accepted | orderId=14999998614 status=NEW executedQty=0.0000
+2026-06-12 11:32:11 | trading_bot.orders   | DEBUG    | Full order response: {'orderId': 14999998614, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': '7l4vw9dqMcJiidKHWWnhvF', 'price': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1781244130856}
+2026-06-12 11:32:11 | trading_bot.cli      | INFO     | Session completed successfully.
+2026-06-12 11:32:41 | trading_bot          | DEBUG    | Logging initialised. Log file: C:\Users\Pallavi Kambali\Downloads\trading_bot_1\trading_bot\logs\trading.log
+2026-06-12 11:32:41 | trading_bot.cli      | INFO     | === Trading Bot Session Started ===
+2026-06-12 11:32:41 | trading_bot.validators | DEBUG    | Validating inputs — symbol=ETHUSDT side=SELL type=LIMIT qty=0.01 price=3500
+2026-06-12 11:32:41 | trading_bot.validators | DEBUG    | Validation passed: {'symbol': 'ETHUSDT', 'side': 'SELL', 'order_type': 'LIMIT', 'quantity': '0.01', 'price': '3500'}
+2026-06-12 11:32:41 | trading_bot.cli      | INFO     | Order request | symbol=ETHUSDT side=SELL type=LIMIT qty=0.01 price=3500
+2026-06-12 11:32:41 | trading_bot.client   | INFO     | BinanceClient initialised (testnet: https://demo-fapi.binance.com)
+2026-06-12 11:32:41 | trading_bot.client   | DEBUG    | GET https://demo-fapi.binance.com/fapi/v1/ping params={}
+2026-06-12 11:32:42 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/ping
+2026-06-12 11:32:42 | trading_bot.client   | DEBUG    | API response: {}
+2026-06-12 11:32:42 | trading_bot.client   | INFO     | Testnet connectivity check: OK
+2026-06-12 11:32:42 | trading_bot.orders   | INFO     | Placing SELL LIMIT order | symbol=ETHUSDT qty=0.01 price=3500
+2026-06-12 11:32:42 | trading_bot.orders   | DEBUG    | Order request params: {'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.01', 'price': '3500', 'timeInForce': 'GTC'}
+2026-06-12 11:32:42 | trading_bot.client   | DEBUG    | POST https://demo-fapi.binance.com/fapi/v1/order params={'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.01', 'price': '3500', 'timeInForce': 'GTC', 'timestamp': 1781244162629}
+2026-06-12 11:32:42 | trading_bot.client   | DEBUG    | HTTP 200 https://demo-fapi.binance.com/fapi/v1/order
+2026-06-12 11:32:42 | trading_bot.client   | DEBUG    | API response: {'orderId': 9634767811, 'symbol': 'ETHUSDT', 'status': 'NEW', 'clientOrderId': 'PVZ9fxCjaYrY7pWsqsoWda', 'price': '3500.00', 'origQty': '0.010', 'executedQty': '0.000', 'cumQty': '0.000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1781244162366}
+2026-06-12 11:32:42 | trading_bot.orders   | INFO     | Order accepted | orderId=9634767811 status=NEW executedQty=0.000
+2026-06-12 11:32:42 | trading_bot.orders   | DEBUG    | Full order response: {'orderId': 9634767811, 'symbol': 'ETHUSDT', 'status': 'NEW', 'clientOrderId': 'PVZ9fxCjaYrY7pWsqsoWda', 'price': '3500.00', 'origQty': '0.010', 'executedQty': '0.000', 'cumQty': '0.000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1781244162366}
+2026-06-12 11:32:42 | trading_bot.cli      | INFO     | Session completed successfully.
